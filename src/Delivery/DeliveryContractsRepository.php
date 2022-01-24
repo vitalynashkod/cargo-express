@@ -13,4 +13,13 @@ interface DeliveryContractsRepository
      * @return DeliveryContract[]
      */
     public function getForTransportModel(int $transportModelId, string $date): array;
+
+    /**
+     * Возвращает количество договоров доставки пользователя
+     *
+     * @param int $clientId
+
+     * @return int
+     */
+    public function getCountByClientId(int $clientId): int;
 }

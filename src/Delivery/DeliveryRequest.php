@@ -18,18 +18,23 @@ class DeliveryRequest
      */
     public $toAddress;
 
+    /** @var int id типа доставки */
+    public $deliveryTypeId;
+
     /**
      * DeliveryContract constructor.
      * @param int $clientId
      * @param int $transportModelId
      * @param string $startDate
      * @param string $toAddress
+     * @param int $deliveryTypeId
      */
-    public function __construct(int $clientId, int $transportModelId, string $startDate, string $toAddress)
+    public function __construct(int $clientId, int $transportModelId, string $startDate, string $toAddress, int $deliveryTypeId)
     {
         $this->clientId         = $clientId;
         $this->transportModelId = $transportModelId;
         $this->startDate        = $startDate;
         $this->toAddress        = $toAddress;
+        $this->deliveryTypeId   = $deliveryTypeId;
     }
 }

@@ -11,21 +11,31 @@ class TransportModel
     /** @var string название модели транспорта */
     protected $name;
 
-    /** @var float Стоимость модели транспорта за час килеметр движения */
+    /** @var float Стоимость модели транспорта за килеметр движения */
     protected $pricePerKilometer;
+
+    /** @var TransportType Вид траспорта */
+    protected $transportType;
+
+    /** @var int максимальная скорость траспорта */
+    protected $fullSpeed;
 
     /**
      * TransportModel constructor.
      *
      * @param int $id
      * @param string $name
-     * @param float $pricePerHour
+     * @param float $pricePerKilometer
+     * @param TransportType $parentTransportType
+     * @param int $fullSpeed
      */
-    public function __construct(int $id, string $name, float $pricePerHour)
+    public function __construct(int $id, string $name, float $pricePerKilometer, TransportType $transportType, int $fullSpeed)
     {
-        $this->id                = $id;
-        $this->name              = $name;
-        $this->pricePerKilometer = $pricePerHour;
+        $this->id                          = $id;
+        $this->name                        = $name;
+        $this->pricePerKilometer           = $pricePerKilometer;
+        $this->transportType               = $transportType;
+        $this->fullSpeed                   = $fullSpeed;
     }
 
     /**
@@ -50,5 +60,21 @@ class TransportModel
     public function getPricePerKilometer(): float
     {
         return $this->pricePerKilometer;
+    }
+
+    /**
+     * @return TransportType
+     */
+    public function getTransportType(): TransportType
+    {
+        return $this->transportType;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFullSpeed(): int
+    {
+        return $this->fullSpeed;
     }
 }
